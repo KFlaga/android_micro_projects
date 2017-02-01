@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScrabbleHelper</string>
+    <string name="dict_loading">Trwa ładowanie słownika</string>
+    <string name="dict_loaded">Słownik załadowany</string>
+</resources>
