@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+          android:keyHeight="10%p"
+          android:keyWidth="20%p">
+    <Row>
+        <Key android:codes="@integer/key_bonus_none" android:keyLabel="Brak"/>
+        <Key android:codes="@integer/key_bonus_l2" android:keyLabel="Znak x2"/>
+        <Key android:codes="@integer/key_bonus_l3" android:keyLabel="Znak x3"/>
+        <Key android:codes="@integer/key_bonus_w2" android:keyLabel="Słowo x2"/>
+    </Row>
+</Keyboard>

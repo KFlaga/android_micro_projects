@@ -1,17 +1,16 @@
 package scrabby.scrabblehelper;
 
-import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
 // Liczy punktacje za podane slowo
-public class PointCounter
+class PointCounter
 {
-    public static final char BLANK_CODE = '?';
+    static final char BLANK_CODE = '?';
 
     private Map<Character, Integer> _pointsForLetterMap; // Mapa z punktami dla kazdego mozliwego kodu znaku (mapa kod->punkty)
 
-    public PointCounter()
+    PointCounter()
     {
         _pointsForLetterMap = new TreeMap<>();
 
@@ -43,27 +42,44 @@ public class PointCounter
 
     // Zwraca wartosc punktowa znaku
     // Jesli znak nie zostal dodany zwraca poprostu zero
-    public int getPointsForLetter(char letter)
+    int getPointsForLetter(Letter letter)
     {
-        Integer points = _pointsForLetterMap.get(letter);
+        Integer points = _pointsForLetterMap.get(letter.Char);
         if(points != null)
-            return points;
+        {
+            if(letter.Bonus == Letter.BonusType.Bonus_Letter_x2)
+                return points * 2;
+            else if(letter.Bonus == Letter.BonusType.Bonus_Letter_x3)
+                return points * 3;
+            else
+                return points;
+        }
         return 0;
     }
 
     // Zwraca wartosc punktowa znaku
     // Jesli slowo zawiera nie dodany znak, to nie ma za niego punktow
-    // Konwertuje slowo na male litery
-    public int getPointsForWord(String word)
+    int getPointsForWord(LetterSequence word)
     {
         int points = 0;
-        word = word.toLowerCase(new Locale("pl"));
+        int doubleWordBonusCount = 0;
 
         // Dla kazdego znaku w slowie dodaj jego wartosc punktowa
-        for(int i = 0; i < word.length(); ++i)
+        for(int i = 0; i < word.size(); ++i)
         {
-            char letter = word.charAt(i);
+            Letter letter = word.get(i);
             points += getPointsForLetter(letter);
+
+            // Sprawdz czy na literce jest bonus dla slowa
+            if(letter.Bonus == Letter.BonusType.Bonus_Word_x2)
+                doubleWordBonusCount += 1;
+        }
+
+        // Dodaj bonus
+        while(doubleWordBonusCount > 0)
+        {
+            points = points * 2;
+            doubleWordBonusCount -= 1;
         }
 
         return points;

@@ -13,11 +13,11 @@ import java.util.HashSet;
 // Laduje slownik z pliku "raw\dict.txt"
 // Oczekiwany format : jedna linia - jeden wyraz
 // Zapisuje slowa majace od 2 do 15 liter, powinnu byc zapisane malymi literami
-public class TxtDictionaryLoader implements Dictionary.IDictionaryLoader
+class TxtDictionaryLoader implements Dictionary.IDictionaryLoader
 {
-    Context _context;
+    private Context _context;
 
-    public TxtDictionaryLoader(Context context)
+    TxtDictionaryLoader(Context context)
     {
         _context = context;
     }

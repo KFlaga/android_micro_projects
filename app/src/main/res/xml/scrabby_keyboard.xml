@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+          android:keyWidth="10%p"
+          android:keyHeight="10%p">
+
+    <Row>
+        <Key android:keyLabel="q"/>
+        <Key android:keyLabel="w"/>
+        <Key android:keyLabel="e" android:popupKeyboard="@xml/popup" android:popupCharacters="eę"/>
+        <Key android:keyLabel="r"/>
+        <Key android:keyLabel="t"/>
+        <Key android:keyLabel="y"/>
+        <Key android:keyLabel="u"/>
+        <Key android:keyLabel="i"/>
+        <Key android:keyLabel="o" android:popupKeyboard="@xml/popup" android:popupCharacters="oó"/>
+        <Key android:keyLabel="p" />
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="a" android:popupKeyboard="@xml/popup" android:popupCharacters="aą" android:horizontalGap="5%p" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="s" android:popupKeyboard="@xml/popup" android:popupCharacters="sś"/>
+        <Key android:keyLabel="d"/>
+        <Key android:keyLabel="f"/>
+        <Key android:keyLabel="g"/>
+        <Key android:keyLabel="h"/>
+        <Key android:keyLabel="j"/>
+        <Key android:keyLabel="k"/>
+        <Key android:keyLabel="l" android:popupKeyboard="@xml/popup" android:popupCharacters="lł"/>
+    </Row>
+    <Row>
+        <Key android:keyLabel="z" android:popupKeyboard="@xml/popup" android:popupCharacters="zźż" android:horizontalGap="15%p" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="x" />
+        <Key android:keyLabel="c" android:popupKeyboard="@xml/popup" android:popupCharacters="cć"/>
+        <Key android:keyLabel="v"/>
+        <Key android:keyLabel="b"/>
+        <Key android:keyLabel="n" android:popupKeyboard="@xml/popup" android:popupCharacters="nń"/>
+        <Key android:keyLabel="m"/>
+    </Row>
+    <Row>
+        <Key android:codes="@integer/key_blank"  android:keyLabel="BLANK" android:keyWidth="18%p"  />
+        <Key android:codes="@integer/key_bonus_none" android:keyLabel="BONUS" android:keyWidth="18%p" android:popupKeyboard="@xml/popup_bonus" />
+        <Key android:codes="@integer/key_hide"  android:keyLabel="HIDE"  android:keyWidth="26%p" />
+        <Key android:codes="@integer/key_delete" android:keyIcon="@drawable/sym_keyboard_delete" android:isRepeatable="true"  android:keyWidth="18%p" />
+        <Key android:codes="@integer/key_left" android:keyIcon="@drawable/sym_keyboard_left" android:isRepeatable="true" android:keyWidth="18%p" />
+        <Key android:codes="@integer/key_right" android:keyIcon="@drawable/sym_keyboard_right" android:isRepeatable="true" android:keyWidth="18%p" />
+    </Row>
+</Keyboard>

@@ -15,35 +15,23 @@
     tools:showIn="@layout/activity_main"
     android:background="@android:color/holo_green_dark">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/_editWord"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp"
-        android:id="@+id/_labelResults"
-        android:textSize="20sp"
-        android:text=" "
-        android:textAlignment="center"
-        android:minHeight="30dp"
-        android:maxLines="3"
-        android:minWidth="100dp"
-        android:textStyle="normal|bold"/>
-
-    <EditText
+    <scrabby.scrabblehelper.ScrabbyEditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textNoSuggestions"
-        android:ems="15"
         android:layout_marginTop="37dp"
         android:id="@+id/_editWord"
         android:textAlignment="textStart"
-        android:maxEms="15"
         android:minEms="2"
-        android:maxLength="15"
         android:layout_below="@+id/_labelWord"
         android:layout_centerHorizontal="true"
-        android:textSize="22sp"/>
+        android:textSize="22sp"
+        android:cursorVisible="true"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:longClickable="false"
+        android:textIsSelectable="false"
+        android:linksClickable="true"/>
 
     <TextView
         android:text="Wprowadź Słowo"
@@ -51,7 +39,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/_labelWord"
         android:textSize="20sp"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/_textScrabby"
         android:layout_marginTop="28dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -61,27 +49,11 @@
         android:textStyle="normal|bold"
         android:typeface="normal"/>
 
-    <Button
-        android:text="Sprawdź Słowo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/_buttonCheckWord"
-        android:layout_marginTop="40dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        android:background="@android:drawable/button_onoff_indicator_on"
-        android:minEms="10"
-        android:minHeight="49dp"
-        android:layout_below="@+id/_editWord"
-        android:layout_centerHorizontal="true"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textSize="20sp"/>
-
     <TextView
         android:text="SCRABBY"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/_textScrabby"
         android:textSize="26sp"
         android:fontFamily="casual"
         android:typeface="monospace"
@@ -97,4 +69,32 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
+
+    <Button
+        android:text="Sprawdź Słowo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/_buttonCheckWord"
+        android:layout_marginTop="29dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:background="@android:drawable/button_onoff_indicator_on"
+        android:minEms="10"
+        android:minHeight="49dp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textSize="20sp"
+        android:layout_below="@+id/_editWord"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:text="  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/_labelResults"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/_buttonCheckWord"
+        android:layout_centerHorizontal="true"
+        android:textSize="22sp"/>
+
+
 </RelativeLayout>

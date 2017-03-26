@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="key_delete">10000</integer>
+    <integer name="key_hide">10001</integer>
+    <integer name="key_blank">10002</integer>
+    <integer name="key_bonus_l2">10003</integer>
+    <integer name="key_bonus_l3">10004</integer>
+    <integer name="key_bonus_w2">10005</integer>
+    <integer name="key_bonus_none">10006</integer>
+    <integer name="key_left">10007</integer>
+    <integer name="key_right">10008</integer>
+</resources>

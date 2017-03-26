@@ -3,17 +3,16 @@ package scrabby.scrabblehelper;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
     WordValidityChecker _wordChecker;
     PointCounter _pointsCounter;
+    ScrabbyKeyboard _keyboard;
 
     boolean _dictionaryLoaded = false;
     boolean _helpVisible = false;
@@ -50,6 +49,9 @@ public class MainActivity extends AppCompatActivity
         TextView labelResult = (TextView) findViewById(R.id._labelResults);
         labelResult.setText(getResources().getText(R.string.dict_loading));
 
+        _keyboard = new ScrabbyKeyboard(this, R.id.keyboardview, R.xml.scrabby_keyboard);
+        _keyboard.registerEditText((ScrabbyEditText)findViewById(R.id._editWord));
+
         // Ladujemy slownik asynchronicznie
         LoadDictionaryAsync loadDictionaryAsync = new LoadDictionaryAsync();
         loadDictionaryAsync.execute(this);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity
 
     void checkWordValidityButtonClicked()
     {
-        EditText editWord = (EditText) findViewById(R.id._editWord);
+        ScrabbyEditText editWord = (ScrabbyEditText) findViewById(R.id._editWord);
         TextView labelResult = (TextView) findViewById(R.id._labelResults);
         String word = editWord.getText().toString();
         WordValidityChecker.ValidationResult result = _wordChecker.checkWordIsValid(word);;
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity
             msg.append("Słowo: [");
             msg.append(word);
             msg.append("] jest dopuszczalne. Warte: [");
-            msg.append(_pointsCounter.getPointsForWord(word));
+            msg.append(_pointsCounter.getPointsForWord(editWord.getLetters()));
             msg.append("] punktów");
             labelResult.setText(msg);
         }
@@ -108,12 +110,6 @@ public class MainActivity extends AppCompatActivity
     class LoadDictionaryAsync extends AsyncTask<Context, Void, Void>
     {
         private Dictionary _dictionary;
-
-        @Override
-        protected void onPreExecute()
-        {
-            super.onPreExecute();
-        }
 
         @Override
         protected Void doInBackground(Context... params)

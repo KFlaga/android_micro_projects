@@ -16,9 +16,9 @@ interface IWordChecker
 // - zawiera wylacznie litery lub blanki
 // - jesli nie ma blankow to czy slowo jest w slowniku
 // - jesli ma blanki to czy da sie ulozyc dzieki nim jakies slowo
-public class WordValidityChecker
+class WordValidityChecker
 {
-    public class ValidationResult
+    class ValidationResult
     {
         ValidationResult(boolean isValid, String invalidReson)
         {
@@ -30,13 +30,13 @@ public class WordValidityChecker
         public String InvalidReson;
     }
 
-    public static final char BLANK_CODE = '?';
+    static final char BLANK_CODE = '?';
 
     private final String _availableLetters = "aąbcćdeęfghijklłmnńoópqrsśtuwvxyzźż";
 
     private IWordChecker _wordChecker;
 
-    public WordValidityChecker(IWordChecker dictChecker)
+    WordValidityChecker(IWordChecker dictChecker)
     {
         _wordChecker = dictChecker;
     }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 // dostep do wyrazow
 // Wykorzystuje interfejs IDictionaryLoader do zaladowania zbioru slow, tak wiec latwo
 // przystosowac go do roznych form zapisu slownika
-public class Dictionary implements IWordChecker
+class Dictionary implements IWordChecker
 {
     interface IDictionaryLoader
     {
@@ -18,7 +18,7 @@ public class Dictionary implements IWordChecker
 
     private ArrayList<HashSet<String>> _wordsOfLength;
 
-    public Dictionary(IDictionaryLoader dictLoader)
+    Dictionary(IDictionaryLoader dictLoader)
     {
         _wordsOfLength = dictLoader.loadDictionary();
     }
